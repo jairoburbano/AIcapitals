@@ -1,0 +1,102 @@
+/*------------------------------------*\
+$BLOG
+\*------------------------------------*/
+.page-blog {
+    padding: 40px 0;
+    max-width: 1120px;
+    margin: auto;
+    @include respond-to(tablet) {
+        padding: 20px 0 70px;
+    }
+    @include respond-to(desktop) {
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+        flex-flow: row wrap;
+        padding: 60px 0 70px;
+    }
+    .columna__item {
+        border: 2px solid rgba($lightmain, .5);
+        margin-bottom: 25px;
+        @include respond-to(tablet) {
+            margin-bottom: 40px;
+        }
+        @include respond-to(desktop) {
+            margin: 0 0 34px;
+            width: calc(50% - 16px);
+        }
+        &:last-of-type {
+            margin-bottom: 0;
+            @include respond-to(desktop) {
+                margin-bottom: 34px;
+            }
+        }
+        .btn {
+            color: white !important;
+        }
+    }
+}
+.paginador {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+    margin-bottom: 40px;
+    @include respond-to(tablet) {
+        margin-bottom: 70px;
+    }
+    li {
+        width: 30px;
+        &.arrow-prev {
+            border-right: 1px solid $lightmain;
+            margin-right: 10px;
+            a.current {
+                &::before {
+                    display: none;
+                }
+            }
+        }
+        &.arrow-next {
+            border-left: 1px solid $lightmain;
+            margin-left: 10px;
+            a.current {
+                &::before {
+                    display: none;
+                }
+            }
+        }
+        a, span {
+            width: 30px;
+            height: 30px;
+            display: block;
+            @include font-size(16px, 30px);
+            padding: 0;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-flow: row wrap;
+            color: $dark;
+            position: relative;
+            transition: all $time;
+            &.current {
+                color: white;
+                &::before {
+                    opacity: 1;
+                }
+            }
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: url(../img/paginador.svg) center no-repeat;
+                z-index: -1;
+                transition: all $time;
+                opacity: 0;
+            }
+        }
+    }
+}

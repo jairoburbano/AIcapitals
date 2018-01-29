@@ -1,0 +1,89 @@
+/*------------------------------------*\
+$LOADER
+\*------------------------------------*/
+$edge: 4em; // edge length
+$skew-angle: 90deg - 60deg;
+$h-tri: 4em*.8666; // tri height
+$t: 2s; // animation-duration
+$scaling-duration: 80%;
+$pad-duration: 5%;
+$rp: 100% - $scaling-duration - $pad-duration;
+.loader {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(#f1f1f1, .8);
+    display: none;
+    color: $main;
+    .feature & {
+        background: rgba($main, .8);
+        color: white;
+    }
+    .scrollable & {
+        background: rgba(white, .8);
+    }
+}
+.loader--scale {
+    @include center;
+    transform: scale(.7);
+}
+.assembly {
+    filter: drop-shadow(0 0 1px currentColor);
+    animation: down $t linear infinite;
+    position: absolute;
+    top: 50%; left: 50%;
+    div {
+        position: absolute;
+        top: 50%; left: 50%;
+    }
+}
+@keyframes down { to { transform: scale(.5); } }
+.hex {
+        z-index: -1;
+    margin: -4em;
+    width: 8em;
+    height: 8em;
+    -webkit-transform: skewY(30deg) scaleX(0.86603);
+    transform: skewY(30deg) scaleX(0.86603);
+    background: -webkit-linear-gradient(315deg, transparent 25%, currentColor 0, currentColor 75%, transparent 0);
+    background: linear-gradient(135deg, transparent 25%, currentColor 0, currentColor 75%, transparent 0);
+}
+.tri {	
+    &:before {
+        margin: 0 (-.5*$edge);
+        border: solid 0;
+        border-color: currentColor transparent;
+        border-width: $h-tri .5*$edge 0;
+        animation: up $t ease-out infinite;
+        content: '';
+        position: absolute;
+        top: 50%; left: 50%;
+    }
+    @for $i from 0 to 6 {
+        @for $j from 0 to 3 {
+            $idx: $i*3 + $j + 1;
+            $f: $j%2;
+            $p: $idx/(18 - 1)*$rp + $pad-duration;
+
+            &:nth-child(#{$idx}) {
+                transform: rotate(-($i - .5)*60deg) 
+                    translateY($h-tri) 
+                    if($j == 0, (), 
+                        translate($j*2em, $f*$h-tri) 
+                        rotate($f*.5turn)
+                    );
+                    &:before { animation-name: up-#{$idx}; }
+            }
+            @at-root {
+                @keyframes up-#{$idx} {
+                    0%, #{$p} { transform: scale(0); }
+                    100%, #{$p + $scaling-duration} {
+                        transform: scale(1);
+                    }
+                }
+            }
+        }
+    }
+}

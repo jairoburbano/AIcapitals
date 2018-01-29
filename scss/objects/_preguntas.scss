@@ -1,0 +1,98 @@
+/*------------------------------------*\
+    		$PREGUNTAS
+\*------------------------------------*/
+.preguntas {
+    padding: 36px 0;
+    @include respond-to(tablet) {
+        padding: 35px 20px;
+    }
+}
+.preguntas--box {
+    &:last-of-type {
+        .preguntas__content {
+            border-bottom: 0;
+            margin-bottom: 0;
+        }
+    }
+    &.open {
+        .svg-hide {
+            opacity: 0;
+        }
+        h2 {
+            color: $darkmain;
+        }
+        svg {
+            fill: $darkmain;
+        }
+        .stroke {
+            stroke: $darkmain;
+        }
+    }
+    .svg-hide {
+        transition: all $time;
+    }
+    .stroke {
+        stroke: $main;
+        transition: all $time;
+    }
+}
+.preguntas__title, .preguntas__title--normal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: row wrap;
+    padding-bottom: 16px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba($lightmain, .5);
+    cursor: pointer;
+    h2 {
+        width: calc(100% - 40px);
+        @include font-size(21px, 25px);
+        color: $main;
+        transition: all $time;
+    }
+    svg {
+        width: 23px;
+        height: 23px;
+        fill: $main;
+    }
+}
+.preguntas__content, .preguntas__content--normal {
+    display: none;
+    p {
+        font-family : $font-light;
+    }
+}
+.preguntas__content--normal {
+    display: block;
+}
+.share {
+    margin: 20px 0;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: row wrap;
+    color: rgba($principal, .5);
+    border-top: 1.2px solid rgba($principal, .4);
+    border-bottom: 1.2px solid rgba($principal, .4);
+    text-transform: uppercase;
+    @include font-size(14px, 25px);
+    a {
+        margin-left: 6px;
+        display: inline-block;
+        svg {
+            width: 28px;
+            height: 28px;
+        }
+    }
+    p {
+        margin-bottom: 0;
+        @include font-size(13px, 25px);
+    }
+}
+.share__box {
+    @include respond-to(tablet) {
+        padding-right: 20px;
+    }
+}

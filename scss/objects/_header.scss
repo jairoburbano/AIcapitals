@@ -1,0 +1,500 @@
+/*------------------------------------*\
+$HEADER
+\*------------------------------------*/
+.header {
+    position: relative;
+    //    border-bottom: 1px solid white;
+    .single &, .page--normal & {
+        border-bottom: 1px solid $lightgray;
+    }
+    @include respond-to(tablet) {
+        border-bottom: 0;
+    }
+    &.has-child {
+        @include respond-to(tablet) {
+            height: 140px;
+            .header__menu {
+                height: 110px;
+            }
+        }
+    }
+}
+.menu__top {
+    background: $lightgray;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    @include font-size(12px, 30px);
+    padding: 0 16px;
+    p {
+        color: rgba($darkmain, .5);
+        margin-right: 15px;
+    }
+    a {
+        color: $darkmain;
+        text-decoration: underline;
+        .no-touch & {
+            transition: all $time;
+            &:hover {
+                color: $main;
+            }
+        }
+        &.active {
+            color: $main;
+        }
+    }
+}
+.header__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: row wrap;
+    height: 60px;
+    @include respond-to(desktop) {
+        position: absolute;
+        top: 30px;
+        left: 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-flow: row wrap;
+        z-index: $level10;
+    }
+}
+.logo {
+    margin-left: 16px;
+    @include respond-to(desktop) {
+        position: relative;
+        z-index: $level8;
+    }
+}
+.header__icon {
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    background: $main;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    transition: all $time;
+    z-index: $level9;
+    @include respond-to(desktop) {
+        display: none;
+    }
+    .open-menu & {
+        right: 230px;
+        @include respond-to(tablet) {
+            right: 430px;
+        }
+    }
+    .header__icon--box {
+        position: relative;
+        width: 60px;
+        height: 45px;
+        transform: scale(0.4);
+    }
+    span {
+        display: block;
+        position: absolute;
+        height: 6px;
+        width: 50%;
+        background: white;
+        opacity: 1;
+        transform: rotate(0deg);
+        transition: .25s ease-in-out;
+        &:nth-child(even) {
+            left: 50%;
+        }
+        &:nth-child(odd) {
+            left:0px;
+        }
+        &:nth-child(1), &:nth-child(2) {
+            top: 0px;
+        }
+        &:nth-child(3), &:nth-child(4) {
+            top: 18px;
+        }
+        &:nth-child(5), &:nth-child(6) {
+            top: 36px;
+        }
+    }
+    &.open {
+        span {
+            &:nth-child(1), &:nth-child(6) {
+                transform: rotate(45deg);
+            }
+            &:nth-child(2), &:nth-child(5) {
+                transform: rotate(-45deg);
+            }
+            &:nth-child(1) {
+                left: 5px;
+                top: 7px;
+            }
+            &:nth-child(2) {
+                left: calc(50% - 5px);
+                top: 7px;
+            }
+            &:nth-child(3) {
+                left: -50%;
+                opacity: 0;
+            }
+            &:nth-child(4) {
+                left: 100%;
+                opacity: 0;
+            }
+            &:nth-child(5) {
+                left: 5px;
+                top: 29px;
+            }
+            &:nth-child(6) {
+                left: calc(50% - 5px);
+                top: 29px;
+            }
+        }
+    }
+}
+.header__menu {
+    width: 0;
+    background: $main;
+    min-height: calc(100vh - 30px);
+    position: absolute;
+    top: 30px; 
+    right: 0;
+    transition: all $time;
+    padding: 16px 0;
+    z-index: $level9;
+    overflow: hidden;
+    @include less-than(tablet) {
+        height: 100%;
+        overflow: auto;
+    }
+    @include respond-to(desktop) {
+        width: auto;
+        min-height: 40px;
+        position: relative;
+        padding: 0;
+        background-color: transparent;
+        top: 0;
+    }
+    .open-menu & {
+        width: 230px;
+        @include respond-to(tablet) {
+            width: 430px;
+        }
+    }
+}
+.menu {
+    @include font-size(16px, 38px);
+    font-family : $font-light;
+    width: 230px;
+    padding: 0 30px 0;
+    @include respond-to(tablet) {
+        width: 430px;
+        @include font-size(25px, 30px);
+        padding-left: 60px;
+        padding-top: 60px;
+        border-bottom: 1px solid $gray;
+    }
+    @include respond-to(desktop) {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        flex-flow: row wrap;
+        width: auto;
+        @include font-size(14px, 60px);
+        border-bottom: 0;
+        padding: 0 53px 0 0;
+    }
+    > .menu-item {
+        margin-bottom: 10px;
+        @include respond-to(tablet) {
+            margin-bottom: 30px;
+        }
+        @include respond-to(desktop) {
+            border-left: 1px solid $lightgray;
+            margin: 0;
+            padding: 0;
+            &.current-menu-item {
+                a {
+                    background: $hover;
+                    color: white;
+                }
+            }
+            a {
+                padding: 0 15px;
+            }
+        }
+        &:last-of-type, &:nth-last-of-type(2) {
+            position: relative;
+            font-family: $font-light;
+            @include respond-to(desktop) {
+                border-left: 0;
+                background: $main;
+                position: static;
+                &.current-menu-item {
+                    font-family: $normal;
+                    font-weight: bold;
+                    > a {
+//                        background: darken($darkmain, 10);
+                        color: white;
+                    }
+                }
+                a {
+                    padding: 0 24px;
+                    color: white;
+                    .no-touch & {
+                        transition: all $time;
+                        &:hover {
+                            background: darken($darkmain, 10);
+                            color: white;
+                        }
+                        &.current-menu-item {
+                            background: darken($darkmain, 10);
+                        }
+                    }
+                }
+            }
+            &::after {
+                content: '';
+                background: url(../img/icon-submenu.svg) no-repeat center;
+                width: 7px;
+                height: 7px;
+                position: absolute;
+                top: 16px;
+                left: -15px;
+                @include respond-to(tablet) {
+                    top: 10px;
+                    width: 12px;
+                    height: 12px;
+                    left: -30px;
+                    background-size: 100%;
+                }
+                @include respond-to(desktop) {
+                    display: none;
+                }
+            }
+            &.menu-item-has-children {
+                @include respond-to(desktop) {
+                    > a {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        flex-flow: row wrap;
+                        background: $main;
+                        svg {
+                            margin-left: 10px;
+                        }
+                        &:hover {
+                            background: darken($main, 5);
+                            color: white;
+                        }
+                    }
+                }
+            }
+        }
+        &:last-of-type {
+            @include respond-to(desktop) {
+                background: $darkmain;
+            }
+        }
+    }
+    a {
+        color: white;
+        display: block;
+        @include respond-to(desktop) {
+            color: $principal;
+        }
+        .no-touch & {
+            transition: all $time;
+            &:hover {
+                background: $hover;
+                color: white;
+            }
+        }
+    }
+}
+.sub-menu {
+    @include respond-to(desktop) {
+        display: none;
+        .current_page_ancestor &, .current-page-ancestor & {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-flow: row wrap;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 100vw;
+            background: $main;
+            height: 50px;
+            li {
+            }
+        }
+    }
+    .menu-item {
+        font-family : $font-light;
+        font-weight: normal;
+        @include respond-to(tablet) {
+            margin-top: 20px;
+        }
+        @include respond-to(desktop) {
+            margin-top: 0;
+            &.current-menu-item, &.current-page-ancestor {
+                a {
+                    opacity: 1 !important;
+                    background-color: transparent !important;
+                }
+            }
+            &:first-of-type {
+                border-right: 2px solid rgba(white, .4);
+            }
+        }
+        a {
+            //            padding: 0 20px;
+            line-height: 35px;
+            display: block;
+            background-color: transparent !important;
+            .no-touch & {
+                transition: all $time;
+                opacity: .5;
+                &:hover {
+                    background-color: transparent !important;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+.header__search {
+    width: 230px;
+    padding: 10px 30px 0;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-flow: row wrap;
+    @include respond-to(tablet) {
+        width: 430px;
+        padding: 20px 60px 0;
+    }
+    @include respond-to(desktop) {
+        position: absolute;
+        top: 0;
+        right: -547px;
+        padding: 0;
+        height: 60px;
+        width: 600px;
+        background: $lightgray;
+        flex-flow: row-reverse;
+        transition: all $time;
+    }
+    &.active {
+        @include respond-to(desktop) {
+            right: 0;
+            .search-group input {
+                display: block;
+            }
+        }
+    }
+    .search__close {
+        display: none;
+        cursor: pointer;
+        @include respond-to(desktop) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-flow: row wrap;
+            width: 53px;
+            height: 60px;
+            background: $darkmain;
+        }
+    }
+    p {
+        @include font-size(14px, 30px);
+        color: white;
+        font-family : $font-light;
+        width: 100%;
+        @include respond-to(tablet) {
+            @include font-size(26px, 31px);
+            margin-bottom: 10px;
+        }
+        @include respond-to(desktop) {
+            display: none;
+        }
+    }
+    .input-group {
+        width: calc(100% - 35px);
+        height: 30px;
+        @include respond-to(tablet) {
+            height: 60px;
+            width: calc(100% - 60px);
+        }
+        @include respond-to(desktop) {
+            width: calc(100% - 106px);
+            height: 60px;
+        }
+        input {
+            width: 100%;
+            height: 100%;
+            padding: 0 10px;
+            border-radius: 0;
+            @include respond-to(desktop) {
+                background-color: transparent;
+                padding: 0 20px;
+                width: calc(100% - 40px);
+            }
+        }
+    }
+    .search-group {
+        background: $darkmain;
+        width: 35px;
+        height: 30px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: row wrap;
+        cursor: pointer;
+        @include respond-to(tablet) {
+            width: 60px;
+            height: 60px;
+        }
+        @include respond-to(desktop) {
+            width: 53px;
+            height: 60px;
+            background-color: transparent;
+        }
+        input {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            z-index: $level1;
+            @include respond-to(desktop) {
+                display: none;
+            }
+        }
+        svg {
+            fill: white;
+            @include respond-to(tablet) {
+                width: 28px;
+                height: 28px;
+            }
+            @include respond-to(desktop) {
+                width: 15px;
+                height: 15px;
+            }
+            @include respond-to(desktop) {
+                fill: $darkmain;
+                opacity: .5;
+            }
+        }
+    }
+}

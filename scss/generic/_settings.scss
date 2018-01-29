@@ -1,0 +1,31 @@
+/*------------------------------------*\
+    		$SETTINGS
+\*------------------------------------*/
+
+/* ============== // Transition // ============== */
+
+$time: .3s;
+$transition-method: ease-in-out;
+
+
+/* ============== // FONTS // ============== */
+@font-face {
+    font-family: 'montserratlight';
+    src: url('../fonts/montserrat-light-webfont.woff2') format('woff2'),
+         url('../fonts/montserrat-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+$font-light : 'montserratlight';
+$title : 'Bitter', serif;
+$normal : 'Montserrat', sans-serif;
+$principal: #4d4d4d;
+$dark: #2a2a2a;
+$gray: #cecece;
+$lightgray: #e2e2e2;
+$main : #006db6;
+$lightmain: #a0b7ca;
+$darkmain: #0f2a3d;
+$secundario: #3bb64f;
+$error: #c1022b;
+$hover: #666;

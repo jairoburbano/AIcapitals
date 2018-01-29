@@ -1,0 +1,96 @@
+/*------------------------------------*\
+$MAIN
+\*------------------------------------*/
+html, body {
+    height: 100%;
+}
+body {
+    font-family: $normal;
+    color: $principal;
+}
+.no-scroll {
+    overflow: hidden;
+}
+.page-wrap {
+    min-height: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: $title;
+    font-weight: normal;
+}
+.title--page {
+    @include font-size(30px, 36px);
+    font-weight: normal;
+    @include respond-to(tablet) {
+        @include font-size(40px, 48px);
+    }
+    @include respond-to(desktop) {
+        @include font-size(55px, 66px);
+    }
+    &.title--space {
+        margin-bottom: 36px;
+    }
+}
+title--section {
+    @include font-size(24px, 28px);
+}
+.title--line {
+    position: relative;
+    margin-bottom: 30px;
+    @include font-size(22px, 26px);
+    color: $main;
+    @include respond-to(tablet) {
+        margin-bottom: 50px;
+    }
+    span {
+        background: white;
+        position: relative;
+        z-index: $level1;
+        padding-right: 10px;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: $lightmain;
+        opacity: .5;
+    }
+}
+.title--icon {
+    padding-bottom: 40px;
+    position: relative;
+    text-align: center;
+    margin-bottom: 30px;
+    @include font-size(32px, 38px);
+    width: 100%;
+    @include respond-to(desktop) {
+        @include font-size(40px, 48px);
+    }
+    svg {
+        position: absolute;
+        left: 50%;
+        bottom: 15px;
+        transform: translate(-50%, 0);
+        fill: $main;
+    }
+}
+.title--light {
+    color: white;
+    svg {
+        fill: white;
+    }
+}
+img {
+    max-width: 100%;
+}
+picture {
+    width: 100%;
+}
+.nodesk {
+    @include respond-to(desktop) {
+        display: none;
+    }
+}

@@ -1,0 +1,111 @@
+/*------------------------------------*\
+$HACEMOS
+\*------------------------------------*/
+.hacemos {
+
+}
+.bajada {
+    margin: 20px auto 40px;
+    max-width: 640px;
+    @include respond-to(tablet) {
+        margin: 50px auto 70px;
+    }
+    @include respond-to(desktop) {
+        max-width: 740px;
+    }
+    p {
+        @include font-size(16px, 22px);
+        color: $darkmain;
+        text-align: center;
+        @include respond-to(tablet) {
+            @include font-size(18px, 28px);
+        }
+        @include respond-to(desktop) {
+            @include font-size(24px, 35px);
+        }
+    }
+}
+.gray--block {
+    background: #ececec;
+    padding: 40px 0;
+    @include respond-to(tablet) {
+        padding: 70px 0;
+    }
+    @include respond-to(tableth) {
+        padding: 90px 0;
+    }
+}
+.service {
+    @include respond-to(tableth) {
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+        flex-flow: row wrap;
+    }
+}
+.service--normal {
+    .service__item {
+        padding: 30px 15px;
+        @include respond-to(tablet) {
+            padding: 30px 40px;
+        }
+        @include respond-to(tableth) {
+            padding: 30px 40px;
+        }
+    }
+}
+.service--noicon {
+    .service__item {
+        @include respond-to(tableth) {
+            padding: 60px 40px;
+            h2 {
+                margin-bottom: 40px;
+            }
+        }
+    }
+}
+.service__item {
+    background: white;
+    border-radius: 8px;
+    padding: 30px 15px 120px;
+    position: relative;
+    text-align: center;
+    max-width: 540px;
+    margin: 0 auto 20px;
+    @include respond-to(tablet) {
+        margin: 0 auto 40px;
+        padding: 30px 40px 120px;
+    }
+    @include respond-to(tableth) {
+        padding: 30px 40px 100px;
+        width: calc(50% - 30px);
+        margin-bottom: 0;
+    }
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+    img {
+        margin-bottom: 20px;
+    }
+    h2 {
+        @include font-size(24px, 28px);
+        color: $main;
+        flex-flow: $title;
+        font-weight: normal;
+        max-width: 300px;
+        margin: 0 auto 20px;
+    }
+    p {
+        @include font-size(14px, 28px);
+        font-family : $font-light;
+    }
+    .btn {
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        @include respond-to(tableth) {
+            bottom: 30px;
+        }
+    }
+}

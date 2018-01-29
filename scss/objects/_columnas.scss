@@ -1,0 +1,129 @@
+/*------------------------------------*\
+$COLUMNAS
+\*------------------------------------*/
+.columnas {
+    position: relative;
+    padding: 40px 0 60px;
+    @include respond-to(tablet) {
+        padding: 90px 0;
+    }
+    .title--icon {
+        color: white;
+        svg {
+            fill: white;
+        }
+    }
+    .wrap {
+        position: relative;
+        z-index: $level2;
+        max-width: 1120px;
+        @include respond-to(desktop) {
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+            flex-flow: row wrap;
+        }
+    }
+}
+.back-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    z-index: $level1;
+    background: $darkmain;
+    overflow: hidden;
+    img {
+        width: 100%;
+        object-fit: cover;
+        opacity: .1;
+    }
+}
+.columna__item {
+    background: white;
+    border-radius: 10px;
+    padding: 30px 20px;
+    margin: 0 auto 16px;
+    max-width: 490px;
+    @include respond-to(tablet) {
+        margin-bottom: 50px;
+        padding: 46px 45px 36px;
+    }
+    @include respond-to(desktop) {
+        width: calc(50% - 20px);
+        margin: 0;
+        max-width: 100%;
+    }
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+}
+.columna--top {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-flow: row wrap;
+    margin-bottom: 30px;
+}
+a.columna--top {
+    .no-touch & {
+        &:hover {
+            .columna__title {
+                color: $main;
+            }
+        }
+    }
+}
+.columna__autor {
+    width: 34px;
+    height: 38px;
+    @include respond-to(tablet) {
+        width: 40px;
+        height: 47px;
+    }
+    img {
+        width: calc(100% - 2px);
+    }
+}
+.columna__title {
+    @include font-size(14px, 16px);
+    font-family : $font-light;
+    padding-left: 20px;
+    width: calc(100% - 34px);
+    color: $darkmain;
+    transition: all $time;
+    @include respond-to(tablet) {
+        width: calc(100% - 40px);
+        @include font-size(16px, 19px);
+    }
+}
+.columna__content {
+    h2 {
+        @include font-size(24px, 28px);
+        font-weight: normal;
+        color: $darkmain;
+        margin-bottom: 10px;
+    }
+    .category {
+        @include font-size(14px, 16px);
+        color: $darkmain;
+        font-family: $title;
+        font-style: italic;
+        a {
+            color: $main;
+            .no-touch & {
+                transition: all $time;
+                &:hover {
+                    color: $darkmain;
+                }
+            }
+        }
+    }
+    .btn {
+        margin-top: 30px;
+    }
+}

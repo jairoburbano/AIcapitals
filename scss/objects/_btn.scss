@@ -1,0 +1,118 @@
+/*------------------------------------*\
+$BTN
+\*------------------------------------*/
+.btn {
+    cursor: pointer;
+    font-family : $font-light;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+    background: $main;
+    color: white;
+    border-radius: 3px;
+    padding: 0;
+    .no-touch & {
+        transition: all $time;
+        &:hover {
+            background: $darkmain;
+        }
+    }
+    svg {
+        margin-left: 10px;
+    }
+    &:focus {
+        outline: none;
+    }
+}
+.btn--small {
+    width: 130px;
+    height: 38px;
+    @include font-size(16px, 25px);
+}
+.btn--big {
+    width: 150px;
+    height: 43px;
+    @include font-size(16px, 25px);
+    border-radius: 6px;
+}
+.btn--opac {
+    background: rgba($darkmain, .4);
+    .no-touch & {
+        &:hover {
+            background: $darkmain;
+        }
+    }
+}
+.btn--center {
+    margin: auto;
+}
+.btn--grow {
+    @include respond-to(tablet) {
+        width: 160px;
+        height: 50px;
+        line-height: 50px;
+    }
+}
+.btn--back {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-flow: row wrap;
+    height: 50px;
+    margin-bottom: 30px;
+    color: $principal;
+    padding: 0 20px;
+    @include respond-to(tablet) {
+        height: 60px;
+    }
+    .no-touch & {
+        transition: all $time;
+        &:hover {
+            color: $main;
+            svg {
+                fill: $main;
+            }
+        }
+    }
+    svg {
+        fill: $darkmain;
+        margin-right: 10px;
+        width: 16px;
+        height: 16px;
+        @include respond-to(tablet) {
+            width: 21px;
+            height: 21px;
+        }
+        @include respond-to(desktop) {
+            width: 18px;
+            height: 18px;
+        }
+    }
+}
+.btn--download {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-flow: row wrap;
+    color: $main;
+    @include font-size(14px, 25px);
+    text-transform: uppercase;
+    font-weight: bold;
+    svg {
+        margin-right: 15px;
+        width: 31px;
+        height: 31px;
+        fill: $main;
+        transition: all $time;
+    }
+    .no-touch & {
+        transition: all $time;
+        &:hover {
+            color: $darkmain;
+            svg {
+                fill: $darkmain;
+            }
+        }
+    }
+}

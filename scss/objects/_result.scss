@@ -1,0 +1,64 @@
+/*------------------------------------*\
+$RESULT
+\*------------------------------------*/
+.result {
+    padding: 20px;
+    max-width: 1150px;
+    @include respond-to(tablet) {
+        padding: 40px 20px 0;
+    }
+    @include respond-to(desktop) {
+        padding: 60px 20px 0;
+    }
+}
+.result__box {
+    padding-bottom: 40px;
+}
+.result__item {
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba($gray, .5);
+    @include respond-to(tablet) {
+        padding: 0 40px 30px;
+    }
+    @include respond-to(desktop) {
+        padding: 0 160px 30px;
+    }
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+}
+.breadcrumb {
+    display: flex;
+    justify-content: flex-start;
+    justify-content: flex-start;
+    flex-flow: row wrap;
+    margin-bottom: 15px;
+    span, p, a {
+        margin-right: 5px;
+    }
+    a {
+        font-weight: bold;
+        color: $darkmain;
+    }
+}
+.result__title {
+    @include font-size(24px, 28px);
+    color: $main;
+    margin-bottom: 15px;
+}
+.result__date {
+    @include font-size(15px, 18px);
+    font-family : $font-light;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+.result__text {
+    font-family: $font-light;
+    margin-bottom: 80px;
+    text-align: center;
+    margin-top: -10px;
+    strong {
+        font-weight: bold;
+    }
+}

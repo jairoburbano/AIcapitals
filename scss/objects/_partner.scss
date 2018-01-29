@@ -1,0 +1,63 @@
+/*------------------------------------*\
+$PARTNER
+\*------------------------------------*/
+.partners {
+    margin: 40px 0;
+    @include respond-to(tablet) {
+        margin: 60px 0;
+    }
+    @include respond-to(desktop) {
+        margin: 80px 0;
+    }
+}
+.partner__slide {
+    width: 100%;
+    position: relative;
+    .flex-nav-prev, .flex-nav-next {
+        position: absolute;
+        top: 50%;
+        left: -10px;
+        transform: translate(0, -50%);
+        svg {
+            width: 20px;
+            height: 20px;
+            @include respond-to(tablet) {
+                width: 35px;
+                height: 35px;
+            }
+        }
+        .flex-disabled {
+            display: none;
+        }
+    }
+    .flex-nav-next {
+        left: auto;
+        right: -10px;
+    }
+}
+.partner__item {
+    text-align: center;
+}
+.partner__media {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 20px;
+    img {
+        width: 100%;
+    }
+}
+.partner__title {
+    @include font-size(18px, 21px);
+    font-weight: bold;
+    font-family: $normal;
+    max-width: 250px;
+    margin: 0 auto 15px;
+}
+.partner__content {
+    @include font-size(16px, 28px);
+    font-family : $font-light;
+    max-width: 250px;
+    margin: 0 auto;
+}

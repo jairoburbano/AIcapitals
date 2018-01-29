@@ -1,0 +1,158 @@
+/*------------------------------------*\
+$TABS
+\*------------------------------------*/
+.tabs {
+
+}
+.tab__selector {
+    .select-dummy {
+        width: 210px;
+        padding: 10px;
+        text-align: left;
+        justify-content: flex-start;
+        height: auto;
+        margin: 0 auto 40px;
+        display: flex;
+        transition: all $time;
+        @include respond-to(tablet) {
+            display: none;
+        }
+        &::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, 0);
+            width: 0;
+            height: 0;
+            bottom: -20px;
+            border-style: solid;
+            border-width: 20px 20px 0 20px;
+            border-color: $darkmain transparent transparent transparent;
+        }
+        p {
+            width: calc(100% - 30px);
+            margin: 0;
+        }
+    }
+}
+.tab__box {
+    display: none;
+    @include respond-to(tablet) {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-flow: row wrap;
+    }
+}
+.tab__box__item {
+    position: relative;
+    background: $darkmain;
+    height: 109px;
+    width: calc(33.333% - 10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    @include font-size(22px, 26px);
+    margin-bottom: 60px;
+    transition: all $time;
+    opacity: .5;
+    border-radius: 8px;
+    cursor: pointer;
+    @include respond-to(tableth) {
+        height: 170px;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
+        width: 0;
+        height: 0;
+        bottom: -20px;
+        border-style: solid;
+        border-width: 20px 20px 0 20px;
+        border-color: $darkmain transparent transparent transparent;
+        opacity: 0;
+        transition: all $time;
+    }
+    &.active {
+        opacity: 1;
+        &::after {
+            opacity: 1;
+        }
+    }
+}
+.tab__content {
+    margin-bottom: 30px;
+    @include respond-to(tableth) {
+        width: 960px;
+        margin: 0 auto 50px;
+    }
+    h2 {
+        margin-bottom: 20px;
+    }
+}
+.tab__row {
+    padding-bottom: 50px;
+    @include respond-to(tablet) {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-flow: row wrap;
+        padding: 50px 0;
+        border-top: 1px solid rgba($gray, .5);
+    }
+    &:last-of-type {
+        border-bottom: 1px solid rgba($gray, .5);
+        margin-bottom: 40px;
+    }
+    &:nth-of-type(2n) {
+        @include respond-to(tablet) {
+            justify-content: flex-end;
+            flex-flow: row-reverse;
+            .row__content {
+                padding-left: 0;
+                padding-right: 20px;
+                text-align: right;
+            }
+        }
+    }
+}
+.tab__item {
+    display: none;
+    &:first-of-type {
+        display: block;
+    }
+}
+.row__media {
+    width: 100%;
+    margin-bottom: 30px;
+    border-radius: 4px;
+    overflow: hidden;
+    @include respond-to(tablet) {
+        width: 270px;
+        margin-bottom: 0;
+    }
+    img {
+        width: 100%;
+    }
+}
+.row__content {
+    @include respond-to(tablet) {
+        width: calc(100% - 340px);
+        padding-left: 20px;
+    }
+    h3 {
+        color: $main;
+        @include font-size(24px, 28px);
+        margin-bottom: 16px;
+    }
+    p {
+        @include font-size(14px, 28px);
+        font-family : $font-light;
+    }
+}

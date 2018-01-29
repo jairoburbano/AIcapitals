@@ -1,0 +1,120 @@
+/*------------------------------------*\
+$BUILD
+\*------------------------------------*/
+.build__container {
+    padding: 30px 0;
+    border-bottom: 1px solid rgba($gray, .5);
+    max-width: 1150px;
+    margin: auto;
+    &:last-of-type {
+        border-bottom: 0;
+    }
+    @include respond-to(tablet) {
+        display: flex;
+        justify-content: flex-start;
+        align-items: stretch;
+        flex-flow: row wrap;
+        padding: 20px 0 20px;
+    }
+    @include respond-to(desktop) {
+        padding-top: 60px;
+    }
+}
+.build__item {
+    border: 1px solid #dfdfdf;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    display: block;
+    .no-touch & {
+        &:hover {
+            .build__media {
+                img {
+                    opacity: .4;
+                }
+            }
+        }
+    }
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+    @include respond-to(tablet) {
+        width: 354px;
+        margin-right: 20px;
+        &:last-of-type {
+            margin-bottom: 20px;
+        }
+        &:nth-of-type(2n) {
+            margin-right: 0;
+        }
+    }
+    @include respond-to(tableth) {
+        width: 314px;
+        &:nth-of-type(2n) {
+            margin-right: 20px;
+        }
+        &:nth-of-type(3n) {
+            margin-right: 0;
+        }
+    }
+    @include respond-to(desktop) {
+        width: 370px;
+    }
+}
+.build__media {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    background: $main;
+    img {
+        transition: all $time;
+    }
+}
+.build__estado {
+    position: absolute;
+    bottom: 34px;
+    right: -46px;
+    transform: rotate(-36deg);
+    color: white;
+    background: #7fafea;
+    @include font-size(15px, 18px);
+    width: 80%;
+    padding: 6px 0;
+    text-align: center;
+    display: block;
+    @include respond-to(tablet) {
+        right: -66px;
+        bottom: 36px;
+    }
+    @include respond-to(tableth) {
+        right: -56px;
+        bottom: 31px;
+    }
+    @include respond-to(desktop) {
+        bottom: 43px;
+        right: -68px;
+    }
+    &.estado--normal {
+        background: $main;
+    }
+    &.estado--done {
+        background: $darkmain;
+    }
+    &.estado--verde {
+        background: #3bb64f;
+    }
+    &.estado--blanco {
+        background: white;
+        color: $dark;
+    }
+    &.estado--entrega {
+        background: $main;
+    }
+}
+.build__title {
+    @include font-size(18px, 21px);
+    color: $main;
+    font-family: $title;
+    padding: 20px 20px 30px;
+    display: block;
+}

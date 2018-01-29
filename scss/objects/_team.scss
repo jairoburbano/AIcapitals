@@ -1,0 +1,341 @@
+/*------------------------------------*\
+$TEAM
+\*------------------------------------*/
+.team {
+    padding: 30px 0 60px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-flow: row wrap;
+    @include respond-to(tablet) {
+        padding: 60px 0;
+    }
+}
+.team__item {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto 50px;
+    width: 240px;
+    @include respond-to(tablet) {
+        width: 360px;
+        margin: 0 0 50px;
+    }
+    @include respond-to(tableth) {
+        width: 320px;
+    }
+    @include respond-to(desktop) {
+        width: 33.333%;
+        margin: 0 0 50px;
+    }
+    .btn {
+        margin-top: 17px;
+    }
+}
+.team__figure {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+    &::after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: url(../img/team.svg) no-repeat;
+        background-size: cover;
+    }
+    > img, > picture {
+        width: calc(100% - 4px);
+    }
+}
+.team__media {
+    width: 100px;
+    height: 112px;
+    margin-bottom: 15px;
+    @include respond-to(tablet) {
+        width: 150px;
+        height: 170px;
+    }
+}
+.team__name {
+    @include font-size(18px, 21px);
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.team__cargo {
+    @include font-size(16px, 22px);
+    font-family: $title;
+    font-style: italic;
+    color: $main;
+    margin-bottom: 10px;
+    max-width: 260px;
+}
+.team__mail {
+    @include font-size(15px, 22px);
+    font-family : $font-light;
+    color: $principal;
+    .no-touch & {
+        transition: all $time;
+        &:hover {
+            color: $main;
+        }
+    }
+}
+.single--team {
+    @include respond-to(desktop) {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-flow: row wrap;
+        max-width: 960px;
+        margin: auto;
+    }
+}
+.single--team__media {
+    width: 150px;
+    height: 170px;
+    margin: auto;
+    margin-bottom: 20px;
+    @include respond-to(tablet) {
+        width: 270px;
+        height: 304px;
+        margin-bottom: 50px;
+    }
+    @include respond-to(desktop) {
+        margin: 0;
+    }
+}
+.single--team__content {
+    margin-bottom: 20px;
+    @include respond-to(tablet) {
+        margin-bottom: 30px;
+        max-width: 600px;
+        margin: 0 auto 130px;
+    }
+    @include respond-to(desktop) {
+        width: 685px;
+        max-width: 100%;
+        padding-left: 124px;
+    }
+    .team__title {
+        color: $darkmain;
+        font-weight: bold;
+        font-family: $normal;
+        width: 162px;
+        margin: 0 auto 15px;
+        @include font-size(25px, 28px);
+        @include respond-to(tablet) {
+            @include font-size(32px, 38px);
+            width: auto;
+            text-align: center;
+        }
+        @include respond-to(desktop) {
+            text-align: left;
+        }
+    }
+    .team__cargo {
+        font-style: italic;
+        text-align: center;
+        font-weight: normal;
+        @include font-size(21px, 22px);
+        max-width: 100%;
+        @include respond-to(tablet) {
+            @include font-size(24px, 26px);
+        }
+        @include respond-to(desktop) {
+            text-align: left;
+        }
+    }
+}
+.team__redes {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-flow: row wrap;
+    margin-bottom: 30px;
+    @include respond-to(tablet) {
+        margin-bottom: 40px;
+    }
+    @include respond-to(desktop) {
+        justify-content: flex-start;
+    }
+    a {
+        margin: 0 3px;
+        display: block;
+        .no-touch & {
+            &:hover {
+                svg {
+                    fill: $darkmain;
+                }
+            }
+        }
+    }
+    svg {
+        fill: $main;
+        transition: all $time;
+    }
+}
+.page--testimonios {
+    padding-top: 50px;
+}
+.testimonios__item {
+    width: 280px;
+    border-bottom: 1px solid rgba($lightmain, .5);
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    max-width: 1120px;
+    @include respond-to(tablet) {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-flow: row wrap;
+    }
+    @include respond-to(desktop) {
+        margin: 0 auto 60px;
+        justify-content: center;
+        padding-bottom: 40px;
+    }
+    &:nth-of-type(2n) {
+        @include respond-to(tablet) {
+            flex-flow: row-reverse;
+            .icon__test {
+                margin: 0 0 10px auto;
+            }
+        }
+        .team__test__content {
+            @include respond-to(tablet) {
+                padding-left: 0;
+                padding-right: 40px;
+                text-align: right;
+            }
+        }
+    }
+    &:last-of-type {
+        border-bottom: 0;
+        padding-bottom: 0;
+    }
+    .team__media {
+        width: 150px;
+        height: 165px;
+        @include respond-to(tablet) {
+            width: 206px;
+            height: 231px;
+        }
+        @include respond-to(desktop) {
+            width: 218px;
+            height: 245px;
+        }
+    }
+}
+.team__test__content {
+    position: relative;
+    text-align: left;
+    max-width: 540px;
+    @include respond-to(tablet) {
+        width: calc(100% - 206px);
+        padding-left: 40px;
+    }
+    p {
+        font-weight: 300;
+        @include font-size(14px, 25px);
+        margin-bottom: 10px;
+    }
+    .team__name {
+        @include font-size(16px, 19px);
+        color: $darkmain;
+        margin-bottom: 5px;
+    }
+    .team__cargo {
+        max-width: 100%;
+    }
+}
+.icon__test {
+    width: 42px;
+    @include less-than(tablet) {
+        position: absolute;
+        height: 50px;
+        top: -50px;
+        left: 0;
+    }
+    @include respond-to(tablet) {
+        margin-bottom: 10px
+    }
+}
+.testimonio--video {
+    position: relative;
+    cursor: pointer;
+    .no-touch & {
+        &:hover {
+            .icon--video {
+                opacity: 1;
+            }
+        }
+    }
+    &::before {
+        content: '';
+        width: calc(100% - 4px);
+        height: calc(100% - 4px);
+        @include center;
+        background: #000;
+    }
+    img {
+        opacity: .5;
+    }
+    .icon--video {
+        opacity: 1;
+        width: 45px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        .no-touch & {
+            opacity: .5;
+            transition: all $time;
+        }
+    }
+}
+.light--test {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(#000, .85);
+    z-index: 1200;
+    display: none;
+}
+.light__container {
+    max-width: 940px;
+    width: 100%;
+    @include center;
+}
+.light__content {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+    .light__close {
+        position: absolute;
+        right: 0;
+        top: -40px;
+        svg {
+            width: 30px;
+            height: 30px;
+        }
+    }
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
